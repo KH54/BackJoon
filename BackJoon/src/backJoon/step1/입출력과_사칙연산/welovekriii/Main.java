@@ -1,4 +1,4 @@
-package backJoon.입출력과_사칙연산.welovekriii;
+package backJoon.step1.입출력과_사칙연산.welovekriii;
 
 public class Main {
     public static void main(String[] args) {

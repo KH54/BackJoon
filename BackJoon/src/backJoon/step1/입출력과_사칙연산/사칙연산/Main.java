@@ -1,4 +1,4 @@
-package backJoon.입출력과_사칙연산.사칙연산;
+package backJoon.step1.입출력과_사칙연산.사칙연산;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

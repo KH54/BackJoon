@@ -1,4 +1,4 @@
-package backJoon.입출력과_사칙연산.AplusB;
+package backJoon.step1.입출력과_사칙연산.AplusB;
 
 import java.util.Scanner;
 
