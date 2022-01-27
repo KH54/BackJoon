@@ -1,9 +1,8 @@
-package backJoon.step3.for문.AplusBminus7;
+package backJoon.step3.for문.별찍기1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -11,13 +10,17 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        int T = Integer.parseInt(br.readLine());
-        StringTokenizer st;
-
-        for (int i = 0; i < T; i++) {
-            st = new StringTokenizer(br.readLine());
-            // TODO
+        StringBuilder sb2 = new StringBuilder();
+        
+        int N = Integer.parseInt(br.readLine());
+        
+        for(int i = 0; i < N; i++) {
+            sb.append("*");
+            sb2.append(sb);
+            sb2.append("\n");
+            
         }
+        System.out.println(sb2);
     }
 
 }
