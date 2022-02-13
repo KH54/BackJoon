@@ -1,2 +1,2 @@
-# 백준 코딩테스트 문제 풀이
+# BackJoon Coding test solution
 <hr>
