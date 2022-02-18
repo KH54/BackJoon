@@ -9,30 +9,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        int before = 0;
-        int cnt = 0;
-        int prev = 0;
+        String str[] = { "c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z=" };
 
-        int next = br.read();
-
-        while(next != 13) {
-            prev = next;
-            next = br.read();
-            
-            if(prev =='c' && next == '=') {}
-            else if(prev == 'c' && next =='-') {}
-            else if(prev == 'd' && next =='-') {}
-            else if(prev == 'l' && next =='j') {}
-            else if(prev == 'n' && next =='j') {}
-            else if(prev == 's' && next =='=') {}
-            else if(prev == 'z' && next =='=') {}
-            else if(prev == 'z' && next =='=' && before == 'd') {cnt--;}
-            else if(prev =='z' && next =='=') {}
-            else {cnt++;}
-            
-            before = prev;
+        String alphabet = br.readLine();
+        br.close();
+        for (int i = 0; i < str.length; i++) {
+            if (alphabet.contains(str[i])) {
+                alphabet = alphabet.replace(str[i], "1");
+            }
         }
-        System.out.println(cnt);
+        System.out.println(alphabet.length());
     }
 }
