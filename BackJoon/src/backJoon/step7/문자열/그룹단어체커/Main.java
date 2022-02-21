@@ -3,7 +3,6 @@ package backJoon.step7.문자열.그룹단어체커;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
 
@@ -14,35 +13,40 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
         int answer = 0;
-        boolean[] arr = new boolean[26];
 
         for (int i = 0; i < N; i++) {
             String word = br.readLine();
 
-            Arrays.fill(arr, false);
+            char[] arr = new char[26];
             for (int j = 0; j < word.length(); j++) {
                 char present = word.charAt(j);
 
                 if (j + 1 < word.length()) {
-                    j++;
-                    char next = word.charAt(j);
-
+                    char next = word.charAt(j+1);
                     if (present == next) {
-                        j++;
+                        continue;
+                    } else if (j == word.length()) {
+                        arr[present - 97]++;
                     } else if (present != next) {
-                        if (arr[present - 97] == true) {
-                            
-                        }
+                        arr[present - 97]++;
                     }
+                } else {
+                    arr[present - 97]++;
                 }
             }
-
-            for (boolean a : arr) {
-                if (a == true) {
-                    break;
-                }
-            }
+            answer += count(arr);
         }
         System.out.println(answer);
+    }
+
+    public static int count(char[] arr) {
+        int cnt = 1;
+        for (int k : arr) {
+            if (k > 1) {
+                return 0;
+            }
+        }
+
+        return cnt;
     }
 }
