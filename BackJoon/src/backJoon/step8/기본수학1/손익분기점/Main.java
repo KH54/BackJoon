@@ -20,6 +20,7 @@ public class Main {
         long B = Integer.parseInt(st.nextToken());
         long C = Integer.parseInt(st.nextToken());
 
+        // (고정 비용 / (제품 가격 - 가변 비용)) +1 == 팔아야하는  개수  
         System.out.println( B < C ? A / (C-B)+1 : -1);
         
     }
