@@ -1,10 +1,15 @@
 package backJoon.step9.기본수학2.골드바흐의추측;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class Main {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+        
 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
     }
 
 }
