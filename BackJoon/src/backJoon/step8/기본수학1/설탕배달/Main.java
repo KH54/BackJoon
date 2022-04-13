@@ -11,18 +11,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
+        int score = 0;
 
-        int five = 0;
-        int three = 0;
+        while (true) {
+            if (N % 5 == 0) {
+                score += N / 5;
+                System.out.println(score);
+                break;
+            } else {
+                N -= 3;
+                score++;
+            }
 
-        int result = 0;
+            if (N < 0) {
+                System.out.println(-1);
+                break;
+            }
 
-        System.out.println(N/5);
-        do{
-            five = N / 5;
-            
         }
-        while(result != 5 * five + 3 * three);
     }
-
 }

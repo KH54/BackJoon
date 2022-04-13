@@ -1,21 +1,19 @@
-package backJoon.step10.재귀함수.별찍기10;
+package backJoon.step13.백트래킹.N과M1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    static String[][] arr;
 
     public static void main(String[] args) throws NumberFormatException, IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        arr = new String[N][N];
-    }
-
-    public void star(int x, int y, int N) {
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
     }
 
