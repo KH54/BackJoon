@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-
     static int[][] arr = new int[30][30];
 
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -17,29 +16,29 @@ public class Main {
 
         int T = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < T; i++) {
+        for (int t = 0; t < T; t++) {
             st = new StringTokenizer(br.readLine());
 
             int N = Integer.parseInt(st.nextToken());
             int M = Integer.parseInt(st.nextToken());
 
-            sb.append(factorial(M, N)).append("\n");
+            arr = new int[M+1][N+1];
 
+            sb.append(find(M, N)).append("\n");
         }
         System.out.println(sb);
     }
 
-    public static int factorial(int n, int k) {
+    static int find(int N, int M) {
 
-        if (arr[n][k] > 0) {
-            return arr[n][k];
+        if (arr[N][M] > 0) {
+            return arr[N][M];
         }
 
-        if (k == 0 || n == k) {
-            return arr[n][k] = 1;
+        if (M == 0 || N == M) {
+            return arr[N][M] = 1;
         }
 
-        return factorial(n - 1, k - 1) + factorial(n - 1, k);
+        return arr[N][M] = find(N - 1, M - 1) + find(N - 1, M);
     }
-
 }
