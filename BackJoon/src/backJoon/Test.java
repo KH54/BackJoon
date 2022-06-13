@@ -1,24 +1,40 @@
 package backJoon;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 public class Test {
 
-    public static void main(String[] args) {
-        int a = 3, b = 4, c = 3, d = 5;
-        if ((a == 2 | a == c) & !(c > d) & (1 == b ^ c != d)) {
-            a = b + c;
-            if (7 == b ^ c != a) {
-                System.out.println(a);
-            } else {
-                System.out.println(b);
+    public static void main(String[] args) throws IOException {
+
+        int[] p = { 2, 5, 3, 1, 4 };
+        int[] answer = new int[p.length];
+        
+        int min = 1;
+        int cnt = 0;
+        for (int i = 0; i < p.length; i++) {
+            int exam = min;
+            for (int j = i; j < p.length; j++) {
+                if (min == p[j] && cnt != j) {
+                    int temp = p[cnt];
+                    p[cnt] = min;
+                    p[j] = temp;
+                    
+                    answer[cnt]++;
+                    answer[j]++;
+                    
+                    
+                    min++;
+                    cnt++;
+                }
             }
-        } else {
-            a = c + d;
-            if (7 == c ^ d != a) {
-                System.out.println(a);
-            } else {
-                System.out.println(d);
+            if(exam == min) {
+                min++;
+                cnt++;
             }
         }
+
+        System.out.println(Arrays.toString(answer));
     }
 
 }
