@@ -7,6 +7,11 @@ import java.util.StringTokenizer;
 
 public class Main {
 
+    final static int E = 1;
+    final static int W = 2;
+    final static int S = 3;
+    final static int N = 4;
+
     public static void main(String[] args) throws NumberFormatException, IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,37 +19,17 @@ public class Main {
 
         int K = Integer.parseInt(br.readLine());
 
-        int maxHeight = 0;
-        int minHeight = 501;
-        int maxWidth = 0;
-        int minWidth = 501;
-
+        int sum = 0;
+        int prev = 0;
         for (int i = 0; i < 6; i++) {
             st = new StringTokenizer(br.readLine());
+            st.nextToken();
 
-            int position = Integer.parseInt(st.nextToken());
             int length = Integer.parseInt(st.nextToken());
 
-            if (position == 3 || position == 4) {
-                if (length > maxHeight) {
-                    maxHeight = length;
-                }
-                if (length < minHeight) {
-                    minHeight = length;
-                }
-            } else {
-                if (length > maxWidth) {
-                    maxWidth = length;
-                }
-                if (length < minWidth) {
-                    minWidth = length;
-                }
-            }
-
+            sum += length * prev;
+            
         }
-        int res = (maxHeight * maxWidth - minWidth * minHeight) * K;
-
-        System.out.println(res);
     }
 
 }
