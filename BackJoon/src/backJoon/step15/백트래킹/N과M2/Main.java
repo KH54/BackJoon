@@ -1,4 +1,4 @@
-package backJoon.step15.백트래킹.N과M1;
+package backJoon.step15.백트래킹.N과M2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
+    // N개의 수
     static int N;
+    // N개의 수 중 뽑아올 수 M
     static int M;
-    static boolean[] visited;
+    // M개 만큼 뽑은 수를 저장할 배열
     static int[] arr;
     static StringBuilder sb = new StringBuilder();
 
@@ -20,31 +22,29 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        visited = new boolean[N];
+        // M만큼 뽑으니 M만큼의 배열 길이
         arr = new int[M];
 
-        dfs(0);
-
+        // 호출
+        dfs(1, 0);
+        
         System.out.println(sb);
     }
 
-    private static void dfs(int depth) {
+    static private void dfs(int start, int depth) {
+        // M만큼 뽑은 경우 (마지막 일 경우)
         if (depth == M) {
-            for (int num : arr) {
-                sb.append(num).append(" ");
+            for (int val : arr) {
+                sb.append(val).append(" ");
             }
             sb.append("\n");
             return;
         }
 
-        for (int n = 0; n < N; n++) {
-            if (!visited[n]) {
-                visited[n] = true;
-                arr[depth] = n + 1;
-                dfs(depth + 1);
-                visited[n] = false;
-            }
+        // 가장 깊은 곳이 아닌 경우 start부터 시작해서 재귀
+        for (int i = start; i <= N; i++) {
+            arr[depth] = i;
+            dfs(i + 1, depth + 1);
         }
     }
-
 }
