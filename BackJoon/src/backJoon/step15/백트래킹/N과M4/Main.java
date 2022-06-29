@@ -24,24 +24,23 @@ public class Main {
 
         arr = new int[M];
 
-        dfs(0,1);
-        
+        dfs(0, 1);
+
         System.out.println(sb);
     }
 
     private static void dfs(int depth, int value) {
-        if (depth == M) {
-            for (int val : arr) {
+        if(depth == M) {
+            for(int val : arr) {
                 sb.append(val).append(" ");
             }
             sb.append("\n");
             return;
         }
-
-        for (int n = value; n <= N; n++) {
+        
+        for(int n = value; n <= N; n++) {
             arr[depth] = n;
-            
-            dfs(depth + 1, n);
+            dfs(depth+1, n);
         }
     }
 

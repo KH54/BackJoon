@@ -25,24 +25,21 @@ public class Main {
         arr = new int[M];
 
         dfs(0);
-
         System.out.println(sb);
     }
 
     private static void dfs(int depth) {
-        // 끝까지 탐색한 경우
         if (depth == M) {
-            for (int value : arr) {
-                sb.append(value).append(" ");
+            for (int val : arr) {
+                sb.append(val).append(" ");
             }
             sb.append("\n");
             return;
         }
 
-        // 빈틈없이 탐색해야 하기 때문에 1~N까지
-        for (int m = 1; m <= N; m++) {
-            arr[depth] = m;
-            dfs(depth + 1);
+        for (int i = 1; i <= N; i++) {
+            arr[depth] = i;
+            dfs(depth+1);
         }
     }
 }
