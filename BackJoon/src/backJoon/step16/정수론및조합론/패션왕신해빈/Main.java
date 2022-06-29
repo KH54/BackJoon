@@ -18,37 +18,35 @@ public class Main {
         int n;
         String str;
 
-        HashMap<String, Integer> map; 
+        HashMap<String, Integer> map;
 
         for (int t = 0; t < T; t++) {
             n = Integer.parseInt(br.readLine());
 
-            map= new HashMap<>();
+            map = new HashMap<>();
             for (int i = 0; i < n; i++) {
                 st = new StringTokenizer(br.readLine());
 
                 st.nextToken();
-                
+
                 str = st.nextToken();
 
                 if (map.containsKey(str)) {
                     map.put(str, map.get(str) + 1);
                 } else {
-                    
                     map.put(str, 1);
-                }
-            }
 
+                }
+
+            }
             int result = 1;
 
             for (int count : map.values()) {
                 result *= (count + 1);
             }
-
-            sb.append(result-1).append("\n");
+            sb.append(--result).append("\n");
 
         }
         System.out.println(sb);
     }
-
 }

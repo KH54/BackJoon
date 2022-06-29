@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 public class Main {
     static int N;
     static int M;
-    static boolean[] visited;
     static int[] arr;
+    static boolean[] visited;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -20,9 +20,8 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        visited = new boolean[N];
         arr = new int[M];
-
+        visited = new boolean[N];
         dfs(0);
 
         System.out.println(sb);
@@ -30,19 +29,20 @@ public class Main {
 
     private static void dfs(int depth) {
         if (depth == M) {
-            for (int num : arr) {
-                sb.append(num).append(" ");
+            for (int val : arr) {
+                sb.append(val).append(" ");
             }
             sb.append("\n");
+            System.out.println(sb);
             return;
         }
 
-        for (int n = 0; n < N; n++) {
-            if (!visited[n]) {
-                visited[n] = true;
-                arr[depth] = n + 1;
+        for (int i = 0; i < N; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                arr[depth] = i+1;
                 dfs(depth + 1);
-                visited[n] = false;
+                visited[i] = false;
             }
         }
     }
