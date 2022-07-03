@@ -16,7 +16,7 @@ public class Main {
     }
 
     public void star(int x, int y, int N) {
-
+       
     }
 
 }
