@@ -69,13 +69,13 @@ public class Main {
         // 시작점 또는 도착점이 원 내부에 있는지
         if (road[start].x > minX && road[start].x < maxX && road[start].y > minY && road[start].y < maxY) {
             // 시작점 또는 도착점이 원 외부에 있는지
-            if (road[end].x > maxX) {
+            if (road[end].x >= maxX) {
                 return true;
-            } else if (road[end].x < minX) {
+            } else if (road[end].x <= minX) {
                 return true;
-            } else if (road[end].y > maxY) {
+            } else if (road[end].y >= maxY) {
                 return true;
-            } else if (road[end].y < minY) {
+            } else if (road[end].y <= minY) {
                 return true;
             }
         }

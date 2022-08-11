@@ -13,38 +13,34 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        long n = Long.parseLong(st.nextToken());
+        long m = Long.parseLong(st.nextToken());
 
-        long res = 0;
-        if (m >= 0 && m <= n) {
-            res = factor(n) / (factor(m) * factor(n - m));
-        }
-        System.out.println(zeroCount(res));
+        long countFive = five_check(n) - five_check(n - m) - five_check(m);
+        long countTwo = two_check(n) - two_check(n - m) - two_check(m);
+
+        System.out.println(Math.min(countFive, countTwo));
     }
 
-    private static int factor(int n) {
-        int sum = 1;
+    public static long five_check(long num) {
+        int count = 0;
 
-        while (n > 1) {
-            sum *= n;
-
-            n--;
+        while (num >= 5) {
+            count += num / 5;
+            num /= 5;
         }
 
-        return sum;
+        return count;
     }
 
-    private static int zeroCount(long n) {
-        int cnt = 0;
-        while (n >= 10) {
-            if (n % 10 == 0) {
-                cnt++;
-                
-            }
-            n /= 10;
+    public static long two_check(long num) {
+        int count = 0;
+
+        while (num >= 2) {
+            count += num / 2;
+            num /= 2;
         }
 
-        return cnt;
+        return count;
     }
 }
